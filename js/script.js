@@ -2,16 +2,20 @@ const { createApp } = Vue;
 
 createApp ({
 
-    eMails: [],
-
+    
     data() {
         return {
-            istantMail: null,
+            
+            eMails: [],
+            // istantMail: null,
+
         }
     },
 
     created() {
-        mailCycle()
+
+        this.mailCycle()
+
     },
     
     methods: {
@@ -22,11 +26,12 @@ createApp ({
                 
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
                     console.log(res);
-                    this.istantMail = res.data.response;
-                    this.eMails.push(istantMail);
+                    // this.istantMail = res.data.response;
+                    this.eMails.push(res.data.response);
+                    console.log(this.eMails);
+                    // debugger
                 });
                 
-                console.log(eMails);
 
             };
             
